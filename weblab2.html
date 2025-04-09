@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Mirfazil Yusifli</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .cv-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            background-color: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        
+        }
+
+        .left-column {
+            background-color: #1a374d;
+            color: white;
+            padding: 40px;
+        }
+
+        .right-column {
+            padding: 40px;
+        }
+
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: block;
+            border: 5px solid white;
+        }
+
+        .section-title {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            color: white;
+            border-bottom: 2px solid #ffffff40;
+            padding-bottom: 10px;
+        }
+
+        .right-section-title {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            color: #1a374d;
+            border-bottom: 2px solid #1a374d40;
+            padding-bottom: 10px;
+        }
+
+        .contact-info {
+            margin-bottom: 30px;
+        }
+
+        .contact-info p {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .skills-list {
+            list-style: none;
+        }
+
+        .skills-list li {
+            margin-bottom: 10px;
+        }
+
+        .work-item {
+            margin-bottom: 30px;
+        }
+
+        .work-title {
+            font-weight: bold;
+            color: #1a374d;
+            margin-bottom: 5px;
+        }
+
+        .work-date {
+            color: #666;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+
+        .work-description {
+            margin-bottom: 10px;
+        }
+
+        .languages-list {
+            list-style: none;
+        }
+
+        .languages-list li {
+            margin-bottom: 5px;
+        }
+
+        .name-title {
+            font-size: 2.5em;
+            color: #1a374d;
+            margin-bottom: 5px;
+        }
+
+        .job-title {
+            font-size: 1.2em;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .reference-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .reference-item {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #406882;
+        }
+
+        .contact-info a, .reference-item a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .click-effect {
+            transition: transform 0.2s ease;
+        }
+
+        .click-effect:active {
+            transform: scale(0.95);
+        }
+
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #1a374d;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .theme-toggle:hover {
+            background: #406882;
+        }
+
+        body.dark-theme {
+            background-color: #1a1a1a;
+            color: #f5f5f5;
+        }
+
+        body.dark-theme .cv-container {
+            background-color: #2d2d2d;
+            box-shadow: 0 0 20px rgba(255,255,255,0.1);
+        }
+
+        body.dark-theme .left-column {
+            background-color: #0d1f2d;
+        }
+
+        body.dark-theme .right-section-title {
+            color: #f5f5f5;
+        }
+
+        body.dark-theme .work-title {
+            color: #f5f5f5;
+        }
+
+        body.dark-theme .reference-item {
+            background-color: #3d3d3d;
+        }
+
+        body.dark-theme a:hover {
+            color: #7aa7c9;
+        }
+
+        .language-toggle {
+            position: fixed;
+            top: 20px;
+            right: 80px;
+            background: #1a374d;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .download-pdf {
+            position: fixed;
+            top: 20px;
+            right: 150px;
+            background: #1a374d;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .contact-form {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.2);
+            z-index: 1000;
+            width: 90%;
+            max-width: 500px;
+        }
+
+        .contact-form.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .form-buttons {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .form-buttons button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .send-button {
+            background: #1a374d;
+            color: white;
+        }
+
+        .close-button {
+            background: #dc3545;
+            color: white;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(-100%); }
+            to { transform: translateX(0); }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .animate-pulse {
+            animation: pulse 2s infinite;
+        }
+
+        .animate-slide {
+            animation: slideIn 1s ease;
+        }
+
+        /* Overlay */
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 999;
+        }
+
+        .overlay.active {
+            display: block;
+        }
+
+        .education-item h3 a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .education-item h3 a:hover {
+            color: #7aa7c9;
+        }
+
+        body.dark-theme .education-item h3 a {
+            color: #f5f5f5;
+        }
+
+        body.dark-theme .education-item h3 a:hover {
+            color: #7aa7c9;
+        }
+    </style>
+    <script src="weblab2.js"></script>
+</head>
+<body>
+    <button class="language-toggle">AZ/EN</button>
+    <button class="download-pdf" onclick="downloadPDF()">📥 PDF</button>
+    <button class="theme-toggle">🌙</button>
+
+    <div class="overlay" id="overlay"></div>
+    
+    <div class="contact-form" id="contactForm">
+        <h2 data-translate="contact-form">Əlaqə Formu</h2>
+        <form id="contactFormElement">
+            <div class="form-group">
+                <label for="name" data-translate="name">Ad Soyad</label>
+                <input type="text" id="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email" data-translate="email">E-poçt</label>
+                <input type="email" id="email" required>
+            </div>
+            <div class="form-group">
+                <label for="message" data-translate="message">Mesaj</label>
+                <textarea id="message" rows="5" required></textarea>
+            </div>
+            <div class="form-buttons">
+                <button type="submit" class="send-button" data-translate="send">Göndər</button>
+                <button type="button" class="close-button" onclick="closeContactForm()" data-translate="close">Bağla</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="cv-container">
+        <div class="left-column">
+            <img src="https://i.pinimg.com/736x/24/cc/88/24cc88ebbf5e1429ea093e93e0065535.jpg" alt="Profil Şəkli" class="profile-img">
+            
+            <div class="contact-info animate-on-scroll">
+                <h2 class="section-title" data-translate="contact">ƏLAQƏ</h2>
+                <p><a href="https://wa.me/994504246582" target="_blank">📞 +994 50 424 65 82</a></p>
+                <p><a href="mailto:mirfazilyusifli@mail.ru">✉️ mirfazilyusifli@mail.ru</a></p>
+                <p>📍 Bakı, Yasamal, Nəzim Hikmət 32</p>
+                <p><a href="https://www.magiclibrary.az" target="_blank">🌐 www.magiclibrary.az</a></p>
+            </div>
+
+            <div class="education animate-on-scroll">
+                <h2 class="section-title" data-translate="education">TƏHSİL</h2>
+                <div class="education-item">
+                    <a href="https://aztu.edu.az" target="_blank"><h3>Azərbaycan Texniki Universiteti</h3></a>
+                    <p>2024 - 2028</p>
+                    <p>BSc Kiber Təhlükəsizlik</p>
+                    <p>GPA: 8.8 / 10.0</p>
+                </div>
+                <div class="education-item">
+                    <a href="https://www.tudelft.nl/en" target="_blank"><h3>Delft Texnologiya Universiteti</h3></a>
+                    <p>2028 - 2030</p>
+                    <p>MSc Kompüter Elmləri</p>
+                    <p>GPA: 3.6 / 4.0</p>
+                </div>
+            </div>
+
+            <div class="skills animate-on-scroll">
+                <h2 class="section-title" data-translate="skills">BACARIQLAR</h2>
+                <ul class="skills-list">
+                    <li>Html & Css</li>
+                    <li>JavaScript</li>
+                    <li>Python</li>
+                    <li>C++ / C#</li>
+                    <li>Responsive Veb Dizayn</li>
+                    <li>Oyun İnkişafı (Unity / Unreal Engine)</li>
+                    <li>Kiber Təhlükəsizlik Prinsipləri</li>
+                    <li>Şəbəkə Təhlükəsizliyi</li>
+                    <li>İnformasiya Təhlükəsizliyi İdarəetməsi</li>
+                </ul>
+            </div>
+
+            <div class="languages animate-on-scroll">
+                <h2 class="section-title" data-translate="languages">DİLLƏR</h2>
+                <ul class="languages-list">
+                    <li>Azərbaycan (Ana dili)</li>
+                    <li>İngilis (Orta)</li>
+                    <li>Türk (Sərbəst)</li>
+                    <li>İspan (Başlanğıc)</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="right-column">
+            <h1 class="name-title">MİRFAZİL YUSİFLİ</h1>
+            <p class="job-title">Veb & Oyun Dizayner | Proqramçı | İnfoSec Mütəxəssis</p>
+
+            <div class="profile animate-on-scroll">
+                <h2 class="right-section-title" data-translate="profile">PROFİL</h2>
+                <p>Təhlükəsizlik sistemlərinin qurulması və İT infrastrukturunun idarə edilməsi sahəsində təcrübəli mütəxəssisəm. Windows və Linux sistemləri, şəbəkə təhlükəsizliyi və məlumatların qorunması sahələrində bacarıqlarım var. Bundan əlavə, həm backend, həm də frontend veb proqramlaşdırma biliklərim var. Sıfırdan vebsaytlar yaratmaq, proqramlar yazmaq və PC və ya mobil oyunlar inkişaf etdirmək təcrübəm var.</p>
+            </div>
+
+            <div class="experience animate-on-scroll">
+                <h2 class="right-section-title" data-translate="experience">TƏCRÜBƏ</h2>
+            
+                <div class="work-item">
+                    <h3 class="work-title">Freelance Veb Dizayner</h3>
+                    <p class="work-date">2023 – Hal-hazırda</p>
+                    <h4 class="work-subtitle">Uzaqdan</h4>
+                    <ul class="work-description">
+                        <li>HTML, CSS və JavaScript istifadə edərək responsiv vebsaytlar dizayn edib və inkişaf etdirdim.</li>
+                        <li>Müştərilərlə UI/UX ehtiyaclarını başa düşmək və optimallaşdırılmış həllər təqdim etmək üçün əməkdaşlıq etdim.</li>
+                        <li>SEO ən yaxşı təcrübələrini inteqrasiya etdim və brauzerlərarası uyğunluğu təmin etdim.</li>
+                    </ul>
+                </div>
+            
+                <div class="work-item">
+                    <h3 class="work-title">Qurucu & Baş Oyun Dizayner</h3>
+                    <p class="work-date">2026 – Hal-hazırda</p>
+                    <h4 class="work-subtitle"><a href="https://www.reystudio.dev" target="_blank">Rey Studio</a></h4>
+                    <ul class="work-description">
+                        <li>PC və mobil platformalar üçün yaradıcı və immersiv oyun təcrübələri inkişaf etdirmək üçün Rey Studio-nu qurdum.</li>
+                        <li>Unity və C# istifadə edərək oyun mexanikası, personaj sistemləri və səviyyə dizaynlarını dizayn edib proqramlaşdırdım.</li>
+                        <li>Kiçik bir rəssam və proqramçı komandasına rəhbərlik etdim, inkişaf dövrlərini idarə etdim və nəşr proseslərini nəzarət etdim.</li>
+                    </ul>
+                </div>
+                
+                <div class="work-item">
+                    <h3 class="work-title">Kiber Təhlükəsizlik Mütəxəssisi</h3>
+                    <p class="work-date">2025 – 2027</p>
+                    <h4 class="work-subtitle"><a href="https://www.skytech.ru" target="_blank">SkyTech</a></h4>
+                    <ul class="work-description">
+                        <li>Şəbəkə fəaliyyətini monitorinq etməkdə və potensial təhlükələri aşkarlamaqda kömək etdim.</li>
+                        <li>Penetrasiya testlərinin əsaslarını öyrəndim və daxili auditlərdə iştirak etdim.</li>
+                        <li>İctimai məlumatları toplamaq və təhlil etmək üçün açıq mənbəli OSINT alətləri ilə işlədim.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="references animate-on-scroll">
+                <h2 class="right-section-title" data-translate="references">İSTİNADLAR</h2>
+                <div class="reference-grid">
+                    <div class="reference-item">
+                        <h3>Elvin Qasımov</h3>
+                        <p>SkyTech / İnformasiya Təhlükəsizliyi Meneceri</p>
+                        <p><a href="javascript:void(0)" onclick="openWhatsApp('994503124576')">📞 +994 50 312 45 76</a></p>
+                        <p><a href="javascript:void(0)" onclick="sendEmail('elvin.qasimov@skytech.com')">✉️ elvin.qasimov@skytech.com</a></p>
+                    </div>
+                    
+                    <div class="reference-item">
+                        <h3>Leyla Məmmədova</h3>
+                        <p>Rey Studio / Oyun Rəssamı</p>
+                        <p><a href="javascript:void(0)" onclick="openWhatsApp('994557985634')">📞 +994 55 798 56 34</a></p>
+                        <p><a href="javascript:void(0)" onclick="sendEmail('leyla.m@reystudio.dev')">✉️ leyla.m@reystudio.dev</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
