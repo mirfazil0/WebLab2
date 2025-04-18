@@ -353,4 +353,33 @@ body.dark-theme .education-item h3 a {
 
 body.dark-theme .education-item h3 a:hover {
     color: #7aa7c9;
+}
+
+/* Accordion Styles */
+.accordion-header {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    user-select: none;
+}
+
+.accordion-icon {
+    font-size: 0.8em;
+    transition: transform 0.3s ease;
+}
+
+.accordion-header.active .accordion-icon {
+    transform: rotate(180deg);
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out;
+}
+
+.accordion-content.active {
+    max-height: 1000px; /* Yeterince büyük bir değer */
+    transition: max-height 0.5s ease-in;
 } 

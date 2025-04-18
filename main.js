@@ -320,4 +320,33 @@ function sendEmail(email) {
     window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=${email}&su=CV%20Haqqında&body=`, '_blank');
 }
 
-console.log('main.js yüklendi'); 
+console.log('main.js yüklendi');
+
+function toggleAccordion(id) {
+    const content = document.getElementById(id);
+    const header = content.previousElementSibling;
+    
+    content.classList.toggle('active');
+    header.classList.toggle('active');
+}
+
+// Sayfa yüklendiğinde tüm bölümleri bağlı olarak başlat
+document.addEventListener('DOMContentLoaded', function() {
+    const sections = [
+        'contact-content',
+        'education-content',
+        'skills-content',
+        'languages-content',
+        'profile-content',
+        'experience-content',
+        'references-content'
+    ];
+
+    sections.forEach(sectionId => {
+        const content = document.getElementById(sectionId);
+        const header = content.previousElementSibling;
+        
+        content.classList.remove('active');
+        header.classList.remove('active');
+    });
+}); 
