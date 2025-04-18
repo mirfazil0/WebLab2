@@ -133,7 +133,7 @@ const LanguageManager = {
         });
 
         if (this.currentLanguage === 'en') {
-            document.querySelector('.job-title').textContent = 'Web & Game Designer | Programmer | InfoSec Specialist';
+            document.querySelector('.job-title').textContent = 'Web & Game Developer | Programmer | InfoSec Specialist';
             document.querySelector('.profile p').textContent = 'I am an experienced specialist in setting up security systems and managing IT infrastructure. I have skills in Windows and Linux systems, network security, and data protection. Additionally, I have knowledge in both backend and frontend web programming. I have experience in creating websites from scratch, writing programs, and developing PC or mobile games.';
             
             const workItems = document.querySelectorAll('.work-item');
@@ -144,7 +144,7 @@ const LanguageManager = {
             workItems[0].querySelectorAll('.work-description li')[1].textContent = 'Collaborated with clients to understand UI/UX needs and present optimized solutions.';
             workItems[0].querySelectorAll('.work-description li')[2].textContent = 'Integrated SEO best practices and ensured cross-browser compatibility.';
 
-            workItems[1].querySelector('.work-title').textContent = 'Founder & Lead Game Designer';
+            workItems[1].querySelector('.work-title').textContent = 'Founder & Lead Game Developer';
             workItems[1].querySelector('.work-date').textContent = '2026 - Present';
             workItems[1].querySelectorAll('.work-description li')[0].textContent = 'Founded Rey Studio to develop creative and immersive gaming experiences for PC and mobile platforms.';
             workItems[1].querySelectorAll('.work-description li')[1].textContent = 'Designed and programmed game mechanics, character systems, and level designs using Unity and C#.';
@@ -194,7 +194,7 @@ const LanguageManager = {
             workItems[0].querySelectorAll('.work-description li')[1].textContent = 'Müştərilərlə UI/UX ehtiyaclarını başa düşmək və optimallaşdırılmış həllər təqdim etmək üçün əməkdaşlıq etdim.';
             workItems[0].querySelectorAll('.work-description li')[2].textContent = 'SEO ən yaxşı təcrübələrini inteqrasiya etdim və brauzerlərarası uyğunluğu təmin etdim.';
 
-            workItems[1].querySelector('.work-title').textContent = 'Qurucu & Baş Oyun Dizayner';
+            workItems[1].querySelector('.work-title').textContent = 'Qurucu & Baş Oyun Dizayneri';
             workItems[1].querySelector('.work-date').textContent = '2026 - Günümüzə qədər';
             workItems[1].querySelectorAll('.work-description li')[0].textContent = 'PC və mobil platformalar üçün yaradıcı və immersiv oyun təcrübələri inkişaf etdirmək üçün Rey Studio-nu qurdum.';
             workItems[1].querySelectorAll('.work-description li')[1].textContent = 'Unity və C# istifadə edərək oyun mexanikası, personaj sistemləri və səviyyə dizaynlarını dizayn edib proqramlaşdırdım.';
@@ -217,7 +217,7 @@ const LanguageManager = {
             skillsList[2].textContent = 'Python';
             skillsList[3].textContent = 'C++ / C#';
             skillsList[4].textContent = 'Responsive Veb Dizayn';
-            skillsList[5].textContent = 'Oyun İnkişafı (Unity / Unreal Engine)';
+            skillsList[5].textContent = 'Oyun Dizaynı (Unity / Unreal Engine)';
             skillsList[6].textContent = 'Kiber Təhlükəsizlik Prinsipləri';
             skillsList[7].textContent = 'Şəbəkə Təhlükəsizliyi';
             skillsList[8].textContent = 'İnformasiya Təhlükəsizliyi İdarəetməsi';
@@ -317,5 +317,7 @@ function openWhatsApp(number) {
 }
 
 function sendEmail(email) {
-    window.location.href = `mailto:${email}`;
-} 
+    window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=${email}&su=CV%20Haqqında&body=`, '_blank');
+}
+
+console.log('main.js yüklendi'); 
