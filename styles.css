@@ -355,7 +355,7 @@ body.dark-theme .education-item h3 a:hover {
     color: #7aa7c9;
 }
 
-/* Accordion Styles */
+
 .accordion-header {
     cursor: pointer;
     display: flex;
@@ -380,6 +380,6 @@ body.dark-theme .education-item h3 a:hover {
 }
 
 .accordion-content.active {
-    max-height: 1000px; /* Yeterince büyük bir değer */
+    max-height: 1000px; 
     transition: max-height 0.5s ease-in;
 } 

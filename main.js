@@ -330,7 +330,7 @@ function toggleAccordion(id) {
     header.classList.toggle('active');
 }
 
-// Sayfa yüklendiğinde tüm bölümleri bağlı olarak başlat
+
 document.addEventListener('DOMContentLoaded', function() {
     const sections = [
         'contact-content',
